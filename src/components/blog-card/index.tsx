@@ -2,9 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { BlogCardProps } from "./types";
 
-
-
-const BlogCard: React.FC<BlogCardProps> = ({id, img, authorImg, authorName, date, title, content, href}: BlogCardProps) => {
+const BlogCard = ({id, img, authorImg, authorName, date, title, content, href}: BlogCardProps) => {
     return (
         <article className="max-w-lg mx-auto mt-4 shadow-2xl border rounded-md hover:shadow-lg duration-300">
             <Link href={href}>
