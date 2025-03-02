@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
-import { BlogCardProps } from './types'
+import { BlogCardProps } from './types';
 
 const BigBlogCard = ({id, img, authorImg, authorName, date, title, content, href}: BlogCardProps) => {
     return (
         <Link href={href}>
-            <article className="grid grid-cols-1 md:grid-cols-3 w-full mt-4 shadow-2xl border rounded-md hover:shadow-lg duration-300">
-                <img src={img} alt={title} className="h-full rounded-md col-span-2" />
+            <div className="lg:grid lg:grid-cols-3 mx-auto w-full mt-4 shadow-2xl border rounded-md hover:shadow-lg duration-300">
+                <img src={img} alt={title} className="w-full h-48 object-cover lg:h-max lg:col-span-2" />
                 <div className="items-center mt-2 pt-3 ml-4 mr-2">
                     <div className="flex h-16 justify-center">
                         <img src={authorImg} className="h-full rounded-full" alt={authorName} />
@@ -23,7 +23,7 @@ const BigBlogCard = ({id, img, authorImg, authorName, date, title, content, href
                         <p className="text-[#2C3E50] text-lg mt-1">{content}</p>
                     </div>
                 </div>
-            </article>
+            </div>
         </Link>
     )
 };

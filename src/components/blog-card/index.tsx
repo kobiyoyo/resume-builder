@@ -1,14 +1,14 @@
 import Link from "next/link";
 import React from "react";
-import { BlogCardProps } from "../blog-card/types";
+import { BlogCardProps } from "./types";
 
 
 
 const BlogCard: React.FC<BlogCardProps> = ({id, img, authorImg, authorName, date, title, content, href}: BlogCardProps) => {
     return (
-        <article className="max-w-lg mx-auto mt-4 shadow-2xl border rounded-md hover:shadow-lg duration-300 hover:scale-95">
+        <article className="max-w-lg mx-auto mt-4 shadow-2xl border rounded-md hover:shadow-lg duration-300">
             <Link href={href}>
-                <img src={img} alt={title} className="w-full h-48 rounded-t-md" />
+                <img src={img} alt={title} className="w-full h-72 rounded-t-md object-cover" />
                 <div className="flex items-center mt-2 pt-3 ml-4 mr-2">
                     <div className="flex-none w-10 h-10 rounded-full">
                         <img src={authorImg} className="w-full h-full rounded-full" alt={authorName} />
