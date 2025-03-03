@@ -4,9 +4,9 @@ import Nav from "../nav";
 
 const Header = () => {
     return (
-      <header className="bg-white border-b border-slate-200 shadow-xl">
+      <header className="bg-white shadow-xl border-2 border-black">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-24">
             {/* Logo */}
             <Link 
               href="/" 
