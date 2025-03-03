@@ -2,12 +2,11 @@ import Link from "next/link";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-
+    const menuItems = ['About', 'Services', 'Blog', 'Contact']
     return (
-      <footer className="bg-emerald-300 text-stone-900">
+      <footer className="bg-[#5AB1BB] text-stone-900 border-2 border-black">
         <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Company Info */}
+          <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-8">
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-stone-900">YourLogo</h3>
               <p className="text-stone-900">
@@ -15,13 +14,12 @@ const Footer = () => {
               </p>
             </div>
   
-            {/* Quick Links */}
             <div>
               <h4 className="text-sm font-semibold text-stone-900 uppercase tracking-wider mb-4">
                 Quick Links
               </h4>
               <ul className="space-y-3">
-                {['About', 'Services', 'Blog', 'Contact'].map(item => (
+                {menuItems.map(item => (
                   <li key={item}>
                     <Link 
                       href={`/${item.toLowerCase()}`}
@@ -34,7 +32,6 @@ const Footer = () => {
               </ul>
             </div>
   
-            {/* Legal */}
             <div>
               <h4 className="text-sm font-semibold text-stone-900 uppercase tracking-wider mb-4">
                 Legal
@@ -53,7 +50,6 @@ const Footer = () => {
               </ul>
             </div>
   
-            {/* Newsletter */}
             <div>
               <h4 className="text-sm font-semibold text-stone-900 uppercase tracking-wider mb-4">
                 Subscribe to our newsletter
@@ -70,6 +66,7 @@ const Footer = () => {
                       rounded-l-md
                       border border-slate-700
                       focus:outline-none focus:border-blue-500
+                      md:w-1/5
                     "
                   />
                   <button
@@ -91,7 +88,6 @@ const Footer = () => {
             </div>
           </div>
   
-          {/* Bottom Bar */}
           <div className="
             mt-12 pt-8
             border-t border-slate-800
