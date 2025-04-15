@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "../nav";
-
+import Image from 'next/image';
+import logo from '../../../public/images/resumeforge-logo.png';
 
 const Header = () => {
     return (
@@ -12,7 +13,7 @@ const Header = () => {
               href="/" 
               className="text-xl font-semibold text-slate-900"
             >
-              Logo
+              <Image src={logo} alt='Resume Forge Logo' height={80}></Image>
             </Link>
             
             {/* Main Navigation */}
