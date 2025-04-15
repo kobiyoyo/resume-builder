@@ -5,7 +5,7 @@ const AboutUsPage = () => {
     <div className="font-sans text-gray-800 bg-gray-100 leading-relaxed">
       <main className="py-20">
         <div className="container mx-auto px-5">
-          <section className="flex gap-10 items-center mb-16 bg-gray-100 p-10 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 md:flex-row flex-col-reverse text-center md:text-left">
+          <section className="flex gap-10 items-center mb-16 bg-gray-200 p-10 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 md:flex-row flex-col-reverse text-center md:text-left">
             <div className="flex-2 sm:w-2/4">
               <h2 className="text-3xl text-gray-900 font-semibold mb-6 leading-tight tracking-tight">
                 Our Story: Crafting Your Success, One Resume at a Time
