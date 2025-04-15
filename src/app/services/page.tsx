@@ -2,7 +2,7 @@ import React from 'react';
 
 const ServicesPage = () => {
   return (
-    <div className="font-sans text-gray-900 bg-gray-50 leading-relaxed antialiased">
+    <div className="font-sans text-gray-900 bg-gray-100 leading-relaxed antialiased">
       <main className="py-24">
         <div className="container mx-auto px-5">
           <section className="bg-gray-200 rounded-xl shadow-lg p-12 text-center mb-20">
