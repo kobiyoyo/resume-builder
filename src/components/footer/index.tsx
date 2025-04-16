@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from 'next/image';
+import logo from '../../../public/images/resumeforge-logo.png';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -8,7 +10,7 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-8">
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-stone-900">YourLogo</h3>
+              <h3 className="text-lg font-semibold text-stone-900"><Image src={logo} alt='Resume Forge Logo' height={80}></Image></h3>
               <p className="text-stone-900">
                 Making the world a better place through constructing elegant hierarchies.
               </p>
@@ -94,7 +96,7 @@ const Footer = () => {
             text-stone-900 text-sm
             flex flex-col md:flex-row md:items-center md:justify-between
           ">
-            <p>© {currentYear} YourLogo. All rights reserved.</p>
+            <p>© {currentYear} ResumeForge. All rights reserved.</p>
             <div className="mt-4 md:mt-0">
               <ul className="flex space-x-6">
                 {['Facebook', 'Twitter', 'LinkedIn', 'GitHub'].map(social => (
