@@ -8,14 +8,14 @@ const Page = () => {
                     <div className="text-center font-bold text-3xl md:text-4xl block w-full">
                         Contact us
                     </div>
-                    <div className="w-full mt-5">
-                        <label className="text-[#5AB1BB]" htmlFor="name">Your name</label>
+                    <div className="w-full mt-36">
+                        <label className="text-[#5AB1BB]" htmlFor="name"></label>
                         <input required className="text-[#2C3E50] block w-full border rounded h-10 pl-3 mt-2 mb-4 focus:outline-none focus:border-zinc-400" id="name" type="text" placeholder="Enter your name"></input>
 
-                        <label className="text-[#5AB1BB]" htmlFor="email">Your email</label>
+                        <label className="text-[#5AB1BB]" htmlFor="email"></label>
                         <input required className="text-[#2C3E50] block w-full border rounded h-10 pl-3 mt-2 mb-4 focus:outline-none focus:border-zinc-400" id="email" type="email" placeholder="Enter your email"></input>
 
-                        <label className="text-[#5AB1BB]" htmlFor="message">Your message</label>
+                        <label className="text-[#5AB1BB]" htmlFor="message"></label>
                         <textarea required className="text-[#2C3E50] block w-full resize-none border rounded h-20 pl-3 mt-2 mb-4 focus:outline-none focus:border-zinc-400" id="message" placeholder="Write your message here"></textarea>
                     </div>
                     <div className="flex justify-center">

@@ -1,7 +1,11 @@
-
+"use client"
+import { useRouter } from "next/navigation";
 export default function Home() {
+
+  const router = useRouter();
   return (
-    <div>
+      <main>
+      <div>
       {/* Section 1 */}
       <section className="bg-gray-200 flex items-center flex-wrap pl-0 pr-0">
         <p className="font-bold text-4xl w-full text-center pt-14">Build Professional Resumes in Minutes</p>
@@ -11,7 +15,9 @@ export default function Home() {
             px-4 py-2 rounded-md
             bg-[#5AB1BB] text-white
             hover:bg-emerald-400
-            transition-colors border-2 border-black">Get Started</button>
+            transition-colors border-2 border-black"
+            onClick={() => router.push('/register')}
+            >Get Started</button>
         </div>
       </section>
 
@@ -119,5 +125,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+      </main>
   );
 }
