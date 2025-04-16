@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Nav = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const router = useRouter();
   const links = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
+    { href: "/builder", label: "Create Resume" },
     { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];
@@ -48,6 +49,7 @@ const Nav = () => {
             hover:bg-emerald-400
             transition-colors border-2 border-black 
           "
+          onClick={() => router.push('/register')}
         >
           Get Started
         </button>
@@ -132,6 +134,7 @@ const Nav = () => {
               transition-colors
               text-lg
             "
+            onClick={() => router.push('/register')}
           >
             Get Started
           </button>
