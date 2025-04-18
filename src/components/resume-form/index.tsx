@@ -22,6 +22,42 @@ type SectionTypes =
   | "projects"
   | "certifications";
 
+  async function saveResumeToBackend(resumeData: ResumeData) {
+    try {
+      const authToken = localStorage.getItem("auth_token");
+      if (!authToken) return false;
+  
+      const response = await fetch("http://localhost:3000/api/v1/resumes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${authToken}`,
+        },
+        body: JSON.stringify({
+          resume: {
+            personal_info: resumeData.personalInfo,
+            education: resumeData.education,
+            experience: resumeData.experience,
+            skills: resumeData.skills,
+            projects: resumeData.projects,
+            certifications: resumeData.certifications,
+          },
+        }),
+      });
+  
+      if (!response.ok) {
+        console.error("❌ Failed to save resume to backend");
+        return false;
+      }
+  
+      console.log("✅ Resume saved to backend");
+      return true;
+    } catch (error) {
+      console.error("❌ Error saving to backend:", error);
+      return false;
+    }
+  }
+
 export default function ResumeForm({
   resumeData,
   updateResume,
@@ -903,12 +939,18 @@ export default function ResumeForm({
               </button>
             </div>
             <div>
-              <button
-                onClick={() => setActiveTab('preview')}
-                className={`px-3 py-1 m-1 rounded  bg-[#5AB1BB]  border-black  text-white`}
-              >
-                Done
-              </button>
+            <button
+        onClick={async () => {
+          const success = await saveResumeToBackend(resumeData);
+          if (!success) {
+            localStorage.setItem("resumeData", JSON.stringify(resumeData));
+          }
+          setActiveTab("preview");
+        }}
+        className={`px-3 py-1 m-1 rounded  bg-[#5AB1BB]  border-black  text-white`}
+        >
+        Done
+      </button>
             </div>
           </div>
         </div>
