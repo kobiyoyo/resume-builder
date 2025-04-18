@@ -78,8 +78,8 @@ const CookiePolicyPage = () => {
               <p className="text-gray-700 leading-relaxed mb-4">
                 You have the right to decide whether to accept or reject cookies. You can manage your cookie preferences
                 through your web browser settings. Most web browsers allow you to control cookies through their settings
-                preferences. You can usually find these settings in the "options" or "preferences" menu of your browser.
-                For more information on how to manage and delete cookies, please refer to your browser's help
+                preferences. You can usually find these settings in the &quot;options&quot; or &quot;preferences&quot; menu of your browser.
+                For more information on how to manage and delete cookies, please refer to your browser&apos;s help
                 documentation.
               </p>
               <p className="text-gray-700 leading-relaxed mb-4">

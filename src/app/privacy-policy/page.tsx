@@ -89,7 +89,7 @@ const PrivacyPolicyPage = () => {
             <div className="mb-8">
               <h2 className="text-xl font-semibold text-indigo-600 mb-4 flex items-center">
                 <span role="img" aria-label="warning">⚠️</span>
-                6. Children's Privacy
+                6. Children&apos;s Privacy
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
                 Our services are intended for users aged 13 and older. We do not knowingly collect personal

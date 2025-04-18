@@ -79,7 +79,7 @@ const TermsOfServicePage = () => {
                 <li className="mb-2">Violating any applicable laws or regulations.</li>
                 <li className="mb-2">Infringing upon the intellectual property rights of others.</li>
                 <li className="mb-2">Uploading or transmitting malicious software or viruses.</li>
-                <li className="mb-2">Attempting to gain unauthorized access to our systems or other users' accounts.</li>
+                <li className="mb-2">Attempting to gain unauthorized access to our systems or other users&apos; accounts.</li>
                 <li>Interfering with the operation of our services.</li>
               </ul>
             </div>
@@ -102,7 +102,7 @@ const TermsOfServicePage = () => {
                 7. Disclaimer of Warranties
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Our services are provided "as is" and "as available" without any warranties of any kind, express or
+                Our services are provided &quot;as is&quot; and &quot;as available&quot; without any warranties of any kind, express or
                 implied, including but not limited to warranties of merchantability, fitness for a particular
                 purpose, and non-infringement. We do not warrant that our services will be uninterrupted or error-free.
               </p>

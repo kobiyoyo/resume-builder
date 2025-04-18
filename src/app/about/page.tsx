@@ -11,7 +11,7 @@ const AboutUsPage = () => {
                 Our Story: Crafting Your Success, One Resume at a Time
               </h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                We're a passionate crew dedicated to making the resume creation process not just easy, but genuinely
+                We&apos;re a passionate crew dedicated to making the resume creation process not just easy, but genuinely
                 empowering. Born from the frustration of clunky, outdated resume tools, Our Resume Builder emerged
                 as a beacon of simplicity and effectiveness.
               </p>
@@ -50,21 +50,21 @@ const AboutUsPage = () => {
               <li className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-6 text-left">
                 <span className="text-green-500 text-3xl">👤</span> {/* User Icon */}
                 <div>
-                  <strong className="text-gray-900 block mb-1 tracking-tight">You First:</strong> We're obsessed with
+                  <strong className="text-gray-900 block mb-1 tracking-tight">You First:</strong> We&apos;re obsessed with
                   creating a user-friendly experience tailored to your needs.
                 </div>
               </li>
               <li className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-6 text-left">
                 <span className="text-green-500 text-3xl">💡</span> {/* Lightbulb Icon */}
                 <div>
-                  <strong className="text-gray-900 block mb-1 tracking-tight">Always Innovating:</strong> We're constantly
+                  <strong className="text-gray-900 block mb-1 tracking-tight">Always Innovating:</strong> We&apos;re constantly
                   exploring fresh ideas and technologies to make your resume shine.
                 </div>
               </li>
               <li className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 flex items-center gap-6 text-left">
                 <span className="text-green-500 text-3xl">✔️</span> {/* Check Circle Icon */}
                 <div>
-                  <strong className="text-gray-900 block mb-1 tracking-tight">Quality Matters:</strong> We're committed
+                  <strong className="text-gray-900 block mb-1 tracking-tight">Quality Matters:</strong> We&apos;re committed
                   to providing top-notch templates and tools that deliver real results.
                 </div>
               </li>
