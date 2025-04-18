@@ -1,14 +1,13 @@
-"use client"
+"use client";
 import { useEffect, useState, useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import html2pdf from 'html2pdf.js';
+import { useRouter, useSearchParams } from 'next/navigation';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import ResumePreview from '../../components/resume-preview';
 import { ResumeData } from './types'; 
-import { useSearchParams } from 'next/navigation'
-
 
 export default function Export() {
-  const [resumeData, setResumeData] = useState<ResumeData>(null);
+  const [resumeData, setResumeData] = useState<ResumeData | null>(null);
   const [exportStatus, setExportStatus] = useState('loading'); // loading, ready, generating, complete, error
   const resumeRef = useRef(null);
   const router = useRouter();
@@ -30,33 +29,41 @@ export default function Export() {
     }
   }, []);
   
-  const generatePDF = () => {
-    if (!resumeRef.current) return;
-    
+  const generatePDF = async () => {
+    if (!resumeRef.current || !resumeData) return;
+
     setExportStatus('generating');
-    
-    const element = resumeRef.current;
-    const options = {
-      margin: [10, 10],
-      filename: `${resumeData?.personalInfo?.name.replace(/\s+/g, '_')}_resume.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-    
-    html2pdf()
-      .set(options)
-      .from(element)
-      .save()
-      .then(() => {
-        setExportStatus('complete');
-      })
-      .catch((err: string) => {
-        console.error('PDF generation error:', err);
-        setExportStatus('error');
+
+    try {
+      const canvas = await html2canvas(resumeRef.current, {
+        scale: 2,
+        useCORS: true
       });
+
+      const imgData = canvas.toDataURL('image/jpeg', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
+      const imgProps = {
+        width: canvas.width,
+        height: canvas.height
+      };
+
+      const ratio = Math.min(pageWidth / imgProps.width, pageHeight / imgProps.height);
+      const imgWidth = imgProps.width * ratio;
+      const imgHeight = imgProps.height * ratio;
+
+      pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
+      pdf.save(`${resumeData?.personalInfo?.name.replace(/\s+/g, '_')}_resume.pdf`);
+
+      setExportStatus('complete');
+    } catch (err) {
+      console.error('PDF generation error:', err);
+      setExportStatus('error');
+    }
   };
-  
+
   const goBack = () => {
     router.push('/');
   };
@@ -101,9 +108,9 @@ export default function Export() {
                 
                 <button 
                   onClick={() => { 
-                    router.push('/builder')
+                    router.push('/builder');
                     localStorage.clear();
-                }}
+                  }}
                   className="px-6 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
                 >
                   Back to Editor
@@ -117,7 +124,7 @@ export default function Export() {
               )}
               
               <div className="border p-1 w-full max-w-4xl mx-auto" ref={resumeRef}>
-                <ResumePreview resumeData={resumeData}  selectedTemplate={selectedTemplate as string} disableTemplateSelection={true} setSelectedTemplate={() => null}/>
+                <ResumePreview resumeData={resumeData} selectedTemplate={selectedTemplate as string} disableTemplateSelection={true} setSelectedTemplate={() => null}/>
               </div>
             </div>
           )}
