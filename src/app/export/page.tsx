@@ -51,7 +51,7 @@ export default function Export() {
       .then(() => {
         setExportStatus('complete');
       })
-      .catch((err: any) => {
+      .catch((err: string) => {
         console.error('PDF generation error:', err);
         setExportStatus('error');
       });
