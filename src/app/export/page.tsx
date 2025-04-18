@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState, useRef } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import ResumePreview from '../../components/resume-preview';
@@ -11,8 +11,13 @@ export default function Export() {
   const [exportStatus, setExportStatus] = useState('loading'); // loading, ready, generating, complete, error
   const resumeRef = useRef(null);
   const router = useRouter();
-  const params = useSearchParams();
-  const selectedTemplate = params.get('template');
+  const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setSelectedTemplate(params.get('template'));
+  }, []);
+  
   
   useEffect(() => {
     try {
