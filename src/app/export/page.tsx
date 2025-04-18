@@ -14,23 +14,26 @@ export default function Export() {
   const [selectedTemplate, setSelectedTemplate] = useState<string | null>(null);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setSelectedTemplate(params.get('template'));
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setSelectedTemplate(params.get('template'));
+    }
   }, []);
-  
-  
+
   useEffect(() => {
-    try {
-      const savedData = localStorage.getItem('resumeData');
-      if (savedData) {
-        setResumeData(JSON.parse(savedData));
-        setExportStatus('ready');
-      } else {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedData = localStorage.getItem('resumeData');
+        if (savedData) {
+          setResumeData(JSON.parse(savedData));
+          setExportStatus('ready');
+        } else {
+          setExportStatus('error');
+        }
+      } catch (error) {
+        console.error('Error loading resume data:', error);
         setExportStatus('error');
       }
-    } catch (error) {
-      console.error('Error loading resume data:', error);
-      setExportStatus('error');
     }
   }, []);
   
@@ -114,7 +117,9 @@ export default function Export() {
                 <button 
                   onClick={() => { 
                     router.push('/builder');
-                    localStorage.clear();
+                    if (typeof window !== 'undefined') {
+                      localStorage.clear();
+                    }
                   }}
                   className="px-6 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition"
                 >
@@ -129,7 +134,12 @@ export default function Export() {
               )}
               
               <div className="border p-1 w-full max-w-4xl mx-auto" ref={resumeRef}>
-                <ResumePreview resumeData={resumeData} selectedTemplate={selectedTemplate as string} disableTemplateSelection={true} setSelectedTemplate={() => null}/>
+                <ResumePreview 
+                  resumeData={resumeData} 
+                  selectedTemplate={selectedTemplate ?? 'modern'} 
+                  disableTemplateSelection={true} 
+                  setSelectedTemplate={() => null}
+                />
               </div>
             </div>
           )}
