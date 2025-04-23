@@ -18,3 +18,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 add an Env to `.env.local`
 NEXT_PUBLIC_BACKEND=http://localhost:3000
+
+
+This is a working url https://lively-kashata-aff510.netlify.app/
